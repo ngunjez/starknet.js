@@ -34,10 +34,9 @@ import { bnToUint256 } from '../utils/uint256';
 import { SignerInterface } from './interface';
 
 /**
- * Signer for accounts using Ethereum signature
  */
 export class EthSigner implements SignerInterface {
-  protected pk: string; // hex string without 0x and with an odd number of characters
+  protected pk: string;
 
   constructor(pk: Uint8Array | string = ethRandomPrivateKey()) {
     this.pk =

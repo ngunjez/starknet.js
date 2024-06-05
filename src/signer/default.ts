@@ -80,7 +80,6 @@ export class Signer implements SignerInterface {
     details: DeployAccountSignerDetails
   ): Promise<Signature> {
     const compiledConstructorCalldata = CallData.compile(details.constructorCalldata);
-    /*     const version = BigInt(details.version).toString(); */
     let msgHash;
 
     if (Object.values(ETransactionVersion2).includes(details.version as any)) {
@@ -108,10 +107,7 @@ export class Signer implements SignerInterface {
     return this.signRaw(msgHash as string);
   }
 
-  public async signDeclareTransaction(
-    // contractClass: ContractClass,  // Should be used once class hash is present in ContractClass
-    details: DeclareSignerDetails
-  ): Promise<Signature> {
+  public async signDeclareTransaction(details: DeclareSignerDetails): Promise<Signature> {
     let msgHash;
 
     if (Object.values(ETransactionVersion2).includes(details.version as any)) {
